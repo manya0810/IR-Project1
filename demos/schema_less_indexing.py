@@ -1,6 +1,7 @@
 import os
 import pysolr
 import requests
+import pickle
 
 CORE_NAME = "IRF21_class_demo"
 AWS_IP = "localhost"
@@ -17,43 +18,8 @@ def create_core(core=CORE_NAME):
 
 
 # collection
-
-collection = [{
-    "id": 1,
-    "first_name": "Chickie",
-    "last_name": "Proven",
-    "email": "cproven0@alexa.com",
-    "age": 77,
-    "pincodes": [2121212, 3232323]
-}, {
-    "id": 2,
-    "first_name": "Dex",
-    "last_name": "Bofield",
-    "email": "dbofield1@about.com",
-    "age": 88,
-    "pincodes": [2121212, 3232323]
-}, {
-    "id": 3,
-    "first_name": "Saba",
-    "last_name": "Ace",
-    "email": "sace2@craigslist.org",
-    "age": 55,
-    "pincodes": [2121212, 3232323]
-}, {
-    "id": 4,
-    "first_name": "Hymie",
-    "last_name": "Patterfield",
-    "email": "hpatterfield3@plala.or.jp",
-    "age": 22,
-    "pincodes": [2121212, 3232323]
-}, {
-    "id": 5,
-    "first_name": "Chiarra",
-    "last_name": "Cornils",
-    "email": "ccornils4@patch.com",
-    "age": 23,
-    "pincodes": [2121212, 3232323]
-}]
+f = open("project1_keywords.pickle","rb")
+collection = pickle.load(f)
 
 
 class Indexer:
