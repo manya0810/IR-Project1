@@ -1,7 +1,7 @@
 import os
 import pysolr
 import requests
-import pickle
+import pickle5 as pickle
 
 CORE_NAME = "IRF21_class_demo"
 AWS_IP = "localhost"
