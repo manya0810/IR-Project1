@@ -28,7 +28,7 @@ class Indexer:
         self.connection = pysolr.Solr(self.solr_url + CORE_NAME, always_commit=True, timeout=5000000)
 
     def do_initial_setup(self):
-#         delete_core()
+        delete_core()
         create_core()
 
     def create_documents(self, docs):
@@ -39,8 +39,7 @@ class Indexer:
         Define all the fields that are to be indexed in the core. Refer to the project doc for more details
         :return:
         '''
-        data = {
-            "add-field": [
+        data = [
                 {
                     "name": "poi_name",
                     "type": "string",
@@ -143,8 +142,7 @@ class Indexer:
                     "type": "string",
                     "multiValued": False
                 }
-            ]
-        }
+        ]
         return data
 
 
