@@ -5,8 +5,11 @@ import requests
 # https://tecadmin.net/install-apache-solr-on-ubuntu/
 
 
-CORE_NAME = "IRF21P1"
+CORE_NAME = "IRF21_demo"
 AWS_IP = "localhost"
+
+
+# [CAUTION] :: Run this script once, i.e. during core creation
 
 
 def delete_core(core=CORE_NAME):
@@ -32,7 +35,117 @@ class Indexer:
         print(self.connection.add(docs))
 
     def add_fields(self):
-        raise NotImplementedError
+        '''
+        Define all the fields that are to be indexed in the core. Refer to the project doc for more details
+        :return:
+        '''
+        data = {
+            "add-field": [
+                {
+                    "name": "poi_name",
+                    "type": "string",
+                    "multiValued": False
+                },
+                {
+                    "name": "poi_id",
+                    "type": "plong",
+                    "multiValued": False
+                }, {
+                    "name": "verified",
+                    "type": "boolean",
+                    "multiValued": False
+                },
+                {
+                    "name": "country",
+                    "type": "string",
+                    "multiValued": False
+                },
+                {
+                    "name": "id",
+                    "type": "string",
+                    "multiValued": False
+                },
+                {
+                    "name": "replied_to_tweet_id",
+                    "type": "plong",
+                    "multiValued": False
+                },
+                {
+                    "name": "replied_to_user_id",
+                    "type": "plong",
+                    "multiValued": False
+                },
+                {
+                    "name": "reply_text",
+                    "type": "text_general",
+                    "multiValued": False
+                },
+                {
+                    "name": "tweet_en",
+                    "type": "text_general",
+                    "multiValued": False
+                },
+                {
+                    "name": "tweet_es",
+                    "type": "text_general",
+                    "multiValued": False
+                },
+                {
+                    "name": "tweet_hi",
+                    "type": "text_general",
+                    "multiValued": False
+                },
+                {
+                    "name": "tweet_lang",
+                    "type": "string",
+                    "multiValued": False
+                },
+                {
+                    "name": "text_en",
+                    "type": "string",
+                    "multiValued": False
+                },{
+                    "name": "text_hi",
+                    "type": "string",
+                    "multiValued": False
+                },{
+                    "name": "text_es",
+                    "type": "string",
+                    "multiValued": False
+                },
+                {
+                    "name": "hashtags",
+                    "type": "string",
+                    "multiValued": True
+                },
+                {
+                    "name": "mentions",
+                    "type": "string",
+                    "multiValued": True
+                },
+                {
+                    "name": "tweet_urls",
+                    "type": "string",
+                    "multiValued": True
+                },
+                {
+                    "name": "tweet_emoticons",
+                    "type": "string",
+                    "multiValued": True
+                },
+                {
+                    "name": "tweet_date",
+                    "type": "pDate",
+                    "multiValued": False
+                },
+                {
+                    "name": "geolocation",
+                    "type": "string",
+                    "multiValued": False
+                }
+            ]
+        }
+        return data
 
 
 if __name__ == "__main__":
