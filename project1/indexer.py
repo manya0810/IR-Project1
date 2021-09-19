@@ -12,7 +12,7 @@ AWS_IP = "localhost"
 # [CAUTION] :: Run this script once, i.e. during core creation
 
 
-# def delete_core(core=CORE_NAME):
+def delete_core(core=CORE_NAME):
 #     print(os.system('sudo su - solr -c "/opt/solr/bin/solr delete -c {core}"'.format(core=core)))
 
 
