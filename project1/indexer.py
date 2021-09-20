@@ -30,7 +30,6 @@ class Indexer:
     def do_initial_setup(self):
         delete_core()
         create_core()
-        print("hi")
 
     def create_documents(self, docs):
         print(self.connection.add(docs))
@@ -151,5 +150,5 @@ class Indexer:
 
 if __name__ == "__main__":
     i = Indexer()
-    i.do_initial_setup()
-#     i.add_fields()
+#     i.do_initial_setup()
+    i.add_fields()
