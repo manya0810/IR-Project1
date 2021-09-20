@@ -48,6 +48,11 @@ class Indexer:
                     "multiValued": "false"
                 },
                 {
+                    "name": "tweet_text",
+                    "type": "text_general",
+                    "multiValued": "false"
+                },
+                {
                     "name": "poi_id",
                     "type": "plong",
                     "multiValued": "false"
