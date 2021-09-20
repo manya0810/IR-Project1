@@ -40,7 +40,8 @@ class Indexer:
         Define all the fields that are to be indexed in the core. Refer to the project doc for more details
         :return:
         '''
-        data = [
+        data = {
+            "add-field":[
                 {
                     "name": "poi_name",
                     "type": "string",
@@ -144,6 +145,7 @@ class Indexer:
                     "multiValued": "false"
                 }
             ]
+        }
         return data
 
 
