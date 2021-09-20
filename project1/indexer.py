@@ -28,8 +28,8 @@ class Indexer:
         self.connection = pysolr.Solr(self.solr_url + CORE_NAME, always_commit="true", timeout=500000)
 
     def do_initial_setup(self):
-        # delete_core()
-        # create_core()
+        delete_core()
+        create_core()
         print("hi")
 
     def create_documents(self, docs):
