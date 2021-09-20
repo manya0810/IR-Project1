@@ -137,7 +137,7 @@ class Indexer:
                 {
                     "name": "geolocation",
                     "type": "strings",
-                    "multiValued": "false"
+                    "multiValued": "true"
                 }
             ]
         }
