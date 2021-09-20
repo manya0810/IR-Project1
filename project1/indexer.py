@@ -62,7 +62,7 @@ class Indexer:
                     "multiValued": "false"
                 },
                 {
-                    "name": "id",
+                    "name": "id_user",
                     "type": "string",
                     "multiValued": "false"
                 },
