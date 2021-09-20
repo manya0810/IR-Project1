@@ -103,15 +103,15 @@ class Indexer:
                 },
                 {
                     "name": "text_en",
-                    "type": "string",
+                    "type": "text_en",
                     "multiValued": "false"
                 },{
                     "name": "text_hi",
-                    "type": "string",
+                    "type": "text_hi",
                     "multiValued": "false"
                 },{
                     "name": "text_es",
-                    "type": "string",
+                    "type": "text_es",
                     "multiValued": "false"
                 },
                 {
@@ -152,4 +152,4 @@ class Indexer:
 if __name__ == "__main__":
     i = Indexer()
     i.do_initial_setup()
-    i.add_fields()
+    # i.add_fields()
