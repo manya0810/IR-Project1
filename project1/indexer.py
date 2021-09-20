@@ -135,7 +135,7 @@ class Indexer:
                 },
                 {
                     "name": "tweet_date",
-                    "type": "pDate",
+                    "type": "pdate",
                     "multiValued": "false"
                 },
                 {
