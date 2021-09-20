@@ -6,7 +6,7 @@ import requests
 
 
 CORE_NAME = "IRF21_demo"
-AWS_IP = "localhost"
+AWS_IP = "ec2-100-25-219-27.compute-1.amazonaws.com"
 
 
 # [CAUTION] :: Run this script once, i.e. during core creation
@@ -25,11 +25,12 @@ def create_core(core=CORE_NAME):
 class Indexer:
     def __init__(self):
         self.solr_url = f'http://{AWS_IP}:8983/solr/'
-        self.connection = pysolr.Solr(self.solr_url + CORE_NAME, always_commit=True, timeout=5000000)
+        self.connection = pysolr.Solr(self.solr_url + CORE_NAME, always_commit="true", timeout=500000)
 
     def do_initial_setup(self):
-        delete_core()
-        create_core()
+        # delete_core()
+        # create_core()
+        print("hi")
 
     def create_documents(self, docs):
         print(self.connection.add(docs))
@@ -43,106 +44,106 @@ class Indexer:
                 {
                     "name": "poi_name",
                     "type": "string",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "poi_id",
                     "type": "plong",
-                    "multiValued": False
+                    "multiValued": "false"
                 }, {
                     "name": "verified",
                     "type": "boolean",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "country",
                     "type": "string",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "id",
                     "type": "string",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "replied_to_tweet_id",
                     "type": "plong",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "replied_to_user_id",
                     "type": "plong",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "reply_text",
                     "type": "text_general",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "tweet_en",
                     "type": "text_general",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "tweet_es",
                     "type": "text_general",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "tweet_hi",
                     "type": "text_general",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "tweet_lang",
                     "type": "string",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "text_en",
                     "type": "string",
-                    "multiValued": False
+                    "multiValued": "false"
                 },{
                     "name": "text_hi",
                     "type": "string",
-                    "multiValued": False
+                    "multiValued": "false"
                 },{
                     "name": "text_es",
                     "type": "string",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "hashtags",
-                    "type": "string",
-                    "multiValued": True
+                    "type": "strings",
+                    "multiValued": "true"
                 },
                 {
                     "name": "mentions",
-                    "type": "string",
-                    "multiValued": True
+                    "type": "strings",
+                    "multiValued": "true"
                 },
                 {
                     "name": "tweet_urls",
-                    "type": "string",
-                    "multiValued": True
+                    "type": "strings",
+                    "multiValued": "true"
                 },
                 {
                     "name": "tweet_emoticons",
-                    "type": "string",
-                    "multiValued": True
+                    "type": "strings",
+                    "multiValued": "true"
                 },
                 {
                     "name": "tweet_date",
                     "type": "pDate",
-                    "multiValued": False
+                    "multiValued": "false"
                 },
                 {
                     "name": "geolocation",
-                    "type": "string",
-                    "multiValued": False
+                    "type": "strings",
+                    "multiValued": "false"
                 }
-        ]
+            ]
         return data
 
 
