@@ -30,6 +30,7 @@ class Indexer:
     def do_initial_setup(self):
         delete_core()
         create_core()
+        print("hi")
 
     def create_documents(self, docs):
         print(self.connection.add(docs))
@@ -61,7 +62,7 @@ class Indexer:
                     "multiValued": "false"
                 },
                 {
-                    "name": "id_user",
+                    "name": "id",
                     "type": "string",
                     "multiValued": "false"
                 },
@@ -145,10 +146,10 @@ class Indexer:
                 }
             ]
         }
-        print(requests.post(self.solr_url + CORE_NAME + "/schema", json=data).json())
+        requests.post(self.solr_url + CORE_NAME + "/schema", json=data).json()
 
 
 if __name__ == "__main__":
     i = Indexer()
-#     i.do_initial_setup()
+    i.do_initial_setup()
     i.add_fields()
