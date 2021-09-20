@@ -146,7 +146,7 @@ class Indexer:
                 }
             ]
         }
-        requests.post(self.solr_url + CORE_NAME + "/schema", json=data).json()
+         print(requests.post(self.solr_url + CORE_NAME + "/schema", json=data).json())
 
 
 if __name__ == "__main__":
